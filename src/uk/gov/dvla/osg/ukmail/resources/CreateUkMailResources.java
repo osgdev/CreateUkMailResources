@@ -82,13 +82,12 @@ public class CreateUkMailResources {
             // Pull reference number out of the array
             UkMailManifest.morristonNextItemRef = Integer.parseInt(morristonNextItemDetails[1]);
             UkMailManifest.fforestfachNextItemRef = Integer.parseInt(fforestfachNextItemDetails[1]);
-            // If the date at runtime is different to the lookup date then reset the item
-            // reference
+            // If the date at runtime is different to the lookup date then reset the item reference
             if (!morristonNextItemDate.equals(runDate.toString())) {
-                UkMailManifest.morristonNextItemRef = 1;
+                UkMailManifest.morristonNextItemRef = 0;
             }
             if (!fforestfachNextItemDate.equals(runDate.toString())) {
-                UkMailManifest.fforestfachNextItemRef = 1;
+                UkMailManifest.fforestfachNextItemRef = 0;
             }
         } catch (NumberFormatException | IOException ex) {
             LOGGER.fatal("Unable to read item details from Tray Lookup files", ex);

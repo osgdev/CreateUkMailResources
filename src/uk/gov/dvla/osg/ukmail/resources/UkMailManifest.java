@@ -12,7 +12,10 @@ import uk.gov.dvla.osg.common.enums.BatchType;
 import uk.gov.dvla.osg.common.enums.Product;
 
 public class UkMailManifest {
-	private String msc;
+    
+    private static final String UNSORTEDPREFIX = "U";
+
+    private String msc;
 	private Integer trayVol;
 	private Integer trayWeight;
 	private String format;
@@ -38,7 +41,6 @@ public class UkMailManifest {
     private BatchType batchType;
     public static int morristonNextItemRef;
     public static int fforestfachNextItemRef;
-    private final String UNSORTEDPREFIX = "U";
 
 	public UkMailManifest(Customer customer, Integer trayVol, Integer startPID, Integer endPID,
 			Double weight, String runNo, String runDate, Product actualProduct) {
