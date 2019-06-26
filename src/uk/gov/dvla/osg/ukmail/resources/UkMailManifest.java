@@ -13,6 +13,7 @@ import uk.gov.dvla.osg.common.enums.Product;
 
 public class UkMailManifest {
     
+    private static final Date TIMESTAMP = new Date();
     private static final String UNSORTEDPREFIX = "U";
 
     private String msc;
@@ -144,7 +145,7 @@ public class UkMailManifest {
     private String setManifestFilename() {
         String productionArea = postConfig.getUkmConsignorDestinationDepartment();
         String mailingSite = prodConfig.getMailingSite().toUpperCase();
-        String manifestTimestamp = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new Date());
+        String manifestTimestamp = new SimpleDateFormat("ddMMyyyy_HHmmss").format(TIMESTAMP);
         return StringUtils.joinWith(".", mailingSite, productionArea, appName, runNo, manifestTimestamp).concat(".DAT");
     }
     
